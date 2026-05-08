@@ -1,0 +1,32 @@
+{
+    "name": "Category Tree",
+    "categories": [
+        {
+            "name": "Basic Elements",
+            "subcategories": [
+                {
+                    "name": "Lines",
+                    "info": ""
+                },
+                {
+                    "name": "Shapes",
+                    "info": ""
+                }
+            ]
+        },
+        {
+            "name": "Compositional Elements",
+            "subcategories": [
+                {
+                    "name": "Perspective",
+                    "info": ""
+                },
+                {
+                    "name":"Focus",
+                    "info": ""
+                }
+            ]
+        }
+    ]
+}
+

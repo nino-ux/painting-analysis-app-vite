@@ -1,0 +1,71 @@
+{
+    "name": "The Starry Night",
+    "elements": [
+        {
+            "name": "Lines",
+            "clue": true,
+            "steps": [
+                {
+                    "question": "What type of lines do we have here?",
+                    "options": [
+                        "Lines",
+                        "Curves"
+                    ],
+                    "correctAnswer": "Curves",
+                    "response": "Correct!"
+                }
+            ],
+            "isSolved": false
+        },
+        {
+            "name": "Shapes",
+            "clue": true,
+            "steps": [
+                {
+                    "question": "What type of shapes do we have here?",
+                    "options": [
+                        "Organic",
+                        "Inorganic"
+                    ],
+                    "correctAnswer": "Organic",
+                    "response": "Yes!"
+                }
+            ],
+            "isSolved": false
+        },
+        {
+            "name": "Focus",
+            "info": "The Church",
+            "clue": true,
+            "steps": [
+                {
+                    "question": "What is the focus of the painting?",
+                    "options": [
+                        "Organic",
+                        "Inorganic"
+                    ],
+                    "correctAnswer": "Organic",
+                    "response": "Yes!"
+                }
+            ],
+            "isSolved": false
+        },
+        {
+            "name": "Perspective",
+            "info": "There is perspective",
+            "clue": true,
+            "steps": [
+                {
+                    "question": "Is there perspective here?",
+                    "options": [
+                        "Organic",
+                        "Inorganic"
+                    ],
+                    "correctAnswer": "Organic",
+                    "response": "Yes!"
+                }
+            ],
+            "isSolved": false
+        }
+    ]
+}
