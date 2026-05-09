@@ -2,10 +2,20 @@
     "name": "The Starry Night",
     "elements": [
         {
+            "id": 1,
             "name": "Lines",
             "clue": true,
             "steps": [
                 {
+                    "question": "What type of lines do we have here?",
+                    "options": [
+                        "Lines",
+                        "Curves"
+                    ],
+                    "correctAnswer": "Curves",
+                    "response": "Correct!"
+                },
+                                {
                     "question": "What type of lines do we have here?",
                     "options": [
                         "Lines",
@@ -18,10 +28,20 @@
             "isSolved": false
         },
         {
+            "id": 2,
             "name": "Shapes",
             "clue": true,
             "steps": [
                 {
+                    "question": "What type of shapes do we have here?",
+                    "options": [
+                        "Organic",
+                        "Inorganic"
+                    ],
+                    "correctAnswer": "Organic",
+                    "response": "Yes!"
+                },
+                                {
                     "question": "What type of shapes do we have here?",
                     "options": [
                         "Organic",
@@ -34,6 +54,7 @@
             "isSolved": false
         },
         {
+            "id": 3,
             "name": "Focus",
             "info": "The Church",
             "clue": true,
@@ -41,16 +62,27 @@
                 {
                     "question": "What is the focus of the painting?",
                     "options": [
-                        "Organic",
-                        "Inorganic"
+                        "Not Clear",
+                        "I don't know"
                     ],
-                    "correctAnswer": "Organic",
+                    "correctAnswer": "Not Clear",
+                    "response": "It's not clear...",
+                    "conditions": ["Lines", "Shapes"]
+                },
+                {
+                    "question": "What is the focus of the painting?",
+                    "options": [
+                        "Right Corner",
+                        "I don't know"
+                    ],
+                    "correctAnswer": "Right Corner",
                     "response": "Yes!"
                 }
             ],
             "isSolved": false
         },
         {
+            "id": 4,
             "name": "Perspective",
             "info": "There is perspective",
             "clue": true,

@@ -1,8 +1,8 @@
 //import React stuff
 import React from 'react'
 import { useState } from 'react'
-// import handleElementClick from '../logic/handleElementClick';
-// import handleElementClick from '../logic/handleElementClick';
+import DotIndicator from './DotIndicator';
+
 
 
 function CategoryTree(props) {
@@ -20,6 +20,12 @@ function CategoryTree(props) {
                                     element.subcategories.map(subelement => (
                                         <ul>
                                             <li>
+                                                <DotIndicator
+                                                    currentElement={props.currentElement}
+                                                    paintingData={props.paintingData}
+                                                    categoryTreeData={props.categoryTreeData}
+                                                    subelement={subelement}
+                                                />
                                                 <a
                                                     onClick={props.handleElementClick}
                                                 >{subelement.name}</a></li>
