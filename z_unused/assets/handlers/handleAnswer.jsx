@@ -18,4 +18,4 @@ const handleAnswer = (isCorrect, currentElement) => {
         ))
     }
 
-export default handleAnswer;
+// export default handleAnswer;

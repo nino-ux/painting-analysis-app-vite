@@ -1,6 +1,6 @@
 //import React stuff
 import React from 'react'
-import { useState } from 'react'
+// import { useState } from 'react'
 import DotIndicator from './DotIndicator';
 
 

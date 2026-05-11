@@ -1,11 +1,12 @@
 import { useState } from "react";
 
-import useGameState from "../logic/hooks/useGameState";
+import useGameLogic from "../logic/hooks/useGameLogic";
 
 
 
 function DotIndicator(props) {
 
+    
     // const { gameState, setGameState } = useGameState();
 
     // [dot, setDot] = useState[[]]

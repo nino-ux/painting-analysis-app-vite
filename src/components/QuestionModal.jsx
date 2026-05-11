@@ -1,36 +1,23 @@
 import React, { use } from "react"
 import { useState, useEffect } from "react";
 
-import currentPaintingData from '../data/StarryNight.json'
+// import currentPaintingData from '../data/StarryNight.json'
 // import useGameState from "../logic/hooks/useGameState";
 
 
 
 function QuestionModal(props) {
 
-    // //Use Game State
-    // const { gameState, setGameState } = useGameState();
-
-    // //Respond to answer
-    // const handleAnswer = (isCorrect, currentElement) => {
-    //     if (!isCorrect) return;
-    //     props.setGameState(prev => prev.map(item =>
-    //         item.name === currentElement
-    //             ? { ...item, progress: item.progress + 1 }
-    //             : item
-    //     ))
-    // }
-
     //Clear response message when the currentElement changes
     useEffect(() => {
         setResponseMessage('');
     }, [props.currentElement]);
 
-    //State
+    //Response state
     const [responseMessage, setResponseMessage] = useState("")
 
     return (
-        currentPaintingData.elements.map((element) => {
+        props.paintingData.elements.map((element) => {
             if (element.name === props.currentElement) {
                 return (
                     <div>
@@ -40,7 +27,7 @@ function QuestionModal(props) {
                         </div>
                         <div>
                             {
-                                props.gameState.map((currentState) => {
+                                props.elementRuntime.map((currentState) => {
 
                                     if (props.currentElement === currentState.name) {
 
