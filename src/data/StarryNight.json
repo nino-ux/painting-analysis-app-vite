@@ -13,7 +13,7 @@
                         "Curves"
                     ],
                     "correctAnswer": "Curves",
-                    "response": "Correct!"
+                    "response": "Hey!"
                 },
                                 {
                     "question": "What type of lines do we have here?",
@@ -22,7 +22,7 @@
                         "Curves"
                     ],
                     "correctAnswer": "Curves",
-                    "response": "Correct!"
+                    "response": "Wow!"
                 }
             ],
             "isSolved": false
@@ -39,7 +39,7 @@
                         "Inorganic"
                     ],
                     "correctAnswer": "Organic",
-                    "response": "Yes!"
+                    "response": "Da!"
                 },
                                 {
                     "question": "What type of shapes do we have here?",
@@ -48,7 +48,7 @@
                         "Inorganic"
                     ],
                     "correctAnswer": "Organic",
-                    "response": "Yes!"
+                    "response": "Oui!"
                 }
             ],
             "isSolved": false
@@ -76,7 +76,7 @@
                         "I don't know"
                     ],
                     "correctAnswer": "Right Corner",
-                    "response": "Yes!"
+                    "response": "Right corner!"
                 }
             ],
             "isSolved": false
@@ -90,8 +90,8 @@
                 {
                     "question": "Is there perspective here?",
                     "options": [
-                        "Organic",
-                        "Inorganic"
+                        "Yes",
+                        "No"
                     ],
                     "correctAnswer": "Organic",
                     "response": "Yes!"

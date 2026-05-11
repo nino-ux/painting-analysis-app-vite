@@ -9,7 +9,8 @@ function useGameState() {
                 {
                     name: element.name,
                     progress: 0,
-                    finalStep: element.steps.length - 1
+                    finalStep: element.steps.length - 1,
+                    dot: ""
                 }
             ))
         });

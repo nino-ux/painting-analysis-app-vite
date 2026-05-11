@@ -5,15 +5,12 @@ import useGameState from "../logic/hooks/useGameState";
 
 
 function DotIndicator(props) {
-    // const [dotState, setDotState] = useState("");
 
-    // if (!props.paintingData?.elements) {
-    //     return <div>Loading or no data...</div>;
+    const { gameState, setGameState } = useGameState();
 
-    // Check the status of the element
+    [dot, setDot] = useState[[]]
 
-    console.log(props.subelement.name);
-
+    
     if (props.currentElement == props.subelement.name) {
         return <span>⚫️</span>
     } return <span>⚪️</span>
