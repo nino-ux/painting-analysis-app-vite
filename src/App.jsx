@@ -5,7 +5,10 @@ import { useState } from "react";
 import updatedCategoryTree from './logic/updateCategoryTree';
 
 //import hooks
-// import useClickTracker from "./logic/hooks/useClickTracker";
+import useGameState from "./logic/hooks/useGameState";
+
+//import handlers
+import handleAnswer from "./logic/handlers/handleAnswer";
 
 //import data
 import currentPaintingData from "./data/StarryNight.json"
@@ -29,6 +32,8 @@ function App() {
     setCurrentElement(e.target.textContent);
   }
 
+  const {gameState, setGameState} = useGameState();
+
 
   return (
     <>
@@ -40,6 +45,9 @@ function App() {
       />
       <QuestionModal
         currentElement={currentElement}
+        gameState = {gameState}
+        setGameState = {setGameState}
+        handleAnswer = {handleAnswer}
       />
     </>
   )

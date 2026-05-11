@@ -6,9 +6,9 @@ import useGameState from "../logic/hooks/useGameState";
 
 function DotIndicator(props) {
 
-    const { gameState, setGameState } = useGameState();
+    // const { gameState, setGameState } = useGameState();
 
-    [dot, setDot] = useState[[]]
+    // [dot, setDot] = useState[[]]
 
     
     if (props.currentElement == props.subelement.name) {

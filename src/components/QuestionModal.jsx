@@ -2,24 +2,24 @@ import React, { use } from "react"
 import { useState, useEffect } from "react";
 
 import currentPaintingData from '../data/StarryNight.json'
-import useGameState from "../logic/hooks/useGameState";
+// import useGameState from "../logic/hooks/useGameState";
 
 
 
 function QuestionModal(props) {
 
-    //Use Game State
-    const { gameState, setGameState } = useGameState();
+    // //Use Game State
+    // const { gameState, setGameState } = useGameState();
 
-    //Respond to answer
-    const handleAnswer = (isCorrect, currentElement) => {
-        if (!isCorrect) return;
-        setGameState(prev => prev.map(item =>
-            item.name === currentElement
-                ? { ...item, progress: item.progress + 1 }
-                : item
-        ))
-    }
+    // //Respond to answer
+    // const handleAnswer = (isCorrect, currentElement) => {
+    //     if (!isCorrect) return;
+    //     props.setGameState(prev => prev.map(item =>
+    //         item.name === currentElement
+    //             ? { ...item, progress: item.progress + 1 }
+    //             : item
+    //     ))
+    // }
 
     //Clear response message when the currentElement changes
     useEffect(() => {
@@ -40,7 +40,7 @@ function QuestionModal(props) {
                         </div>
                         <div>
                             {
-                                gameState.map((currentState) => {
+                                props.gameState.map((currentState) => {
 
                                     if (props.currentElement === currentState.name) {
 
@@ -54,13 +54,14 @@ function QuestionModal(props) {
                                                         const step = steps[currentState.progress];
                                                         const isCorrect = (step.correctAnswer === e.currentTarget.textContent);
                                                         const response = step.response;
+
                                                         //Set response message
                                                         if (isCorrect) {
                                                             setResponseMessage(response);
                                                         } else {setResponseMessage("Sorry, it's wrong...")};
                                                         //Handle answer
                                                         if (progress < steps.length - 1) {
-                                                            handleAnswer(isCorrect, props.currentElement);
+                                                            props.handleAnswer(isCorrect, props.currentElement);
                                                         }
                                                     }
                                                     }
