@@ -5,12 +5,12 @@ import paintingDataDefault from '../../data/CategoryTree.json'
 
 function useGameLogic() {
 
+    //**HANDLERS
     //Handle element click
     const handleElementClick = (e) => {
 
         setCurrentElement(e.target.textContent);
     }
-
     //Respond to answer
     const handleAnswer = (isCorrect, currentElement) => {
 
@@ -22,6 +22,7 @@ function useGameLogic() {
         ))
     }
 
+    //**FUNCTIONS
     //Create a new object with data combined from 2 objects: DefaultPainting.json and StarryNight.json
     const updatedCategoryTree = {
         ...paintingDataDefault,
@@ -39,7 +40,8 @@ function useGameLogic() {
         )
     }
 
-    //Element runtime
+    //**STATES
+    //Element runtime states
     const [elementRuntime, setElementRuntime] = useState(
         () => {
             return currentPaintingData.elements.map(element => (
@@ -51,8 +53,7 @@ function useGameLogic() {
                 }
             ))
         });
-
-    //States
+    //Other states
     const [paintingData, setPaintingData] = useState(currentPaintingData);
     const [currentElement, setCurrentElement] = useState("");
     const [categoryTreeData, setCategoryTreeData] = useState(updatedCategoryTree);
