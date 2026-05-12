@@ -25,6 +25,7 @@
                     "response": "Wow!"
                 }
             ],
+            "isRevealed": false,
             "isSolved": false
         },
         {
@@ -85,7 +86,7 @@
             "id": 4,
             "name": "Perspective",
             "info": "There is perspective",
-            "clue": true,
+            "clue": false,
             "steps": [
                 {
                     "question": "Is there perspective here?",

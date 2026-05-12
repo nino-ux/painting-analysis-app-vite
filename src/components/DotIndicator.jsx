@@ -1,20 +1,16 @@
-import { useState } from "react";
-
-import useGameLogic from "../logic/hooks/useGameLogic";
-
-
 
 function DotIndicator(props) {
 
-    
-    // const { gameState, setGameState } = useGameState();
+    const runtime = props.elementRuntime.find(
+        r => r.name === props.subelement.name);
+    if (props.subelement.name === props.currentElement) {
+        return runtime ? <span>{runtime.dot[1]}</span> : "argh";
+    } else {
+        return runtime ? <span>{runtime.dot[0]}</span> : "argh";
+    }
 
-    // [dot, setDot] = useState[[]]
+    console.log("heyheyhey");
 
-    
-    if (props.currentElement == props.subelement.name) {
-        return <span>⚫️</span>
-    } return <span>⚪️</span>
 }
 
 export default DotIndicator;
