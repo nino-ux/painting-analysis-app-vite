@@ -1,12 +1,10 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import currentPaintingData from '../../data/StarryNight.json'
 import paintingDataDefault from '../../data/CategoryTree.json'
 import useGameState from './useGameState';
 
 
-function useGameLogic() {
-
-    const { currentElement, setCurrentElement } = useGameState();
+function useGameLogic(currentElement, setCurrentElement) {
 
     //**HANDLERS
     //Handle element click
@@ -14,8 +12,13 @@ function useGameLogic() {
 
         setCurrentElement(e.target.textContent);
 
-        console.log(currentElement);
+
     }
+
+    useEffect(() => {
+        console.log(currentElement);
+    },[currentElement])
+    
     //Respond to answer
     const handleAnswer = (isCorrect, currentElement) => {
 

@@ -18,8 +18,9 @@ import QuestionModal from "./components/QuestionModal";
 
 function App() {
 
-  const { updatedCategoryTree, handleElementClick, handleAnswer } = useGameLogic();
-  const { elementRuntime, setElementRuntime, paintingData, setPaintingData, currentElement, setCurrentElement, categoryTreeData, setCategoryTreeData } = useGameState();
+
+  const { paintingData, setPaintingData, categoryTreeData, setCategoryTreeData, currentElement, setCurrentElement, elementRuntime, setElementRuntime } = useGameState();
+  const { updatedCategoryTree, handleAnswer, handleElementClick } = useGameLogic(currentElement, setCurrentElement);
 
   return (
     <>
@@ -27,6 +28,7 @@ function App() {
         categoryTreeData={categoryTreeData}
         paintingData={paintingData}
         currentElement={currentElement}
+        elementRuntime={elementRuntime}
         handleElementClick={handleElementClick}
       />
       <QuestionModal

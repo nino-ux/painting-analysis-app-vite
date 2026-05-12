@@ -13,19 +13,22 @@ import dotInd from '../../data/ElementDot.json'
 function useGameState() {
 
     const initialRuntime = currentPaintingData.elements.map(element => {
-        const regularDot = dotInd.find(dt => dt.name === 'regular');
+        // const elementType = elRuntime.map(element => element.clue ? "clue" : "regular")
+                const elementType = element.clue ? "clue" : "regular"
+
+        const regularDot = dotInd.find(dt => dt.name === elementType);
         return   {
                 ...elRuntime,
                 finalStep: element.steps.length,
                 name: element.name,
-                type: element.clue ? "clue" : "regular",
+                type: elementType,
                 dot: regularDot ? regularDot.state : elRuntime.dot
             }
 })
 
     const [elementRuntime, setElementRuntime] = useState(initialRuntime);
 
-    useEffect(() => {console.log(elementRuntime)})
+    // useEffect(() => {console.log(elementRuntime)})
 
     //CATEGORY TREE
     // Create a new object with data combined from 2 objects: DefaultPainting.json and StarryNight.json
@@ -60,7 +63,7 @@ function useGameState() {
         currentElement,
         setCurrentElement,
         categoryTreeData,
-        setCategoryTreeData
+        setCategoryTreeData,
     }
 }
 

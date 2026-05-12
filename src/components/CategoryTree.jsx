@@ -3,12 +3,16 @@ import React from 'react'
 // import { useState } from 'react'
 import DotIndicator from './DotIndicator';
 import useGameState from '../logic/hooks/useGameState';
+import useGameLogic from '../logic/hooks/useGameLogic';
+
 
 
 
 function CategoryTree(props) {
 
-    const { elementRuntime, setElementRuntime, currentElement, setCurrentElement } = useGameState();
+    // const { elementRuntime, setElementRuntime, currentElement, setCurrentElement } = useGameState();
+
+    // const { handleElementClick } = useGameLogic();
 
 
     return (
@@ -29,7 +33,7 @@ function CategoryTree(props) {
                                                     paintingData={props.paintingData}
                                                     categoryTreeData={props.categoryTreeData}
                                                     subelement={subelement}
-                                                    elementRuntime={elementRuntime}
+                                                    elementRuntime={props.elementRuntime}
                                                 />
                                                 <a
                                                     onClick={
