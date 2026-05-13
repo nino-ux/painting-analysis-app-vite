@@ -5,8 +5,6 @@ import DefaultRuntime from '../data/ElementRuntime.json'
 
 function DotIndicator(props) {
 
-
-
     const elIndex = props.currentPaintingData.elements.find(el => el.name === props.subelement.name);
 
     let type;
@@ -28,9 +26,9 @@ function DotIndicator(props) {
 
     const isActive = (elementRuntime.name === props.currentElement)
 
-    useEffect(() => {
-        console.log(elementRuntime)
-    }, [elementRuntime])
+    // useEffect(() => {
+    //     console.log(elementRuntime)
+    // }, [elementRuntime])
 
     return (
         <span>{isActive ? elementRuntime.dot[1] : elementRuntime.dot[0]}</span>

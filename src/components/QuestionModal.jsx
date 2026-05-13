@@ -1,19 +1,24 @@
-import React from "react"
+import React, { useEffect } from "react"
 
 function QuestionModal(props) {
-    return (
-        props.currentPaintingData.elements.map((element) => {
-            if (element.name === props.currentElement) {
-                return (
-                    <div>
-                        <h3>{element.name}</h3>
-                        <p>{element.steps[0].question}</p>
-                    </div>
-                );
-            }
-        }
-        ))
 
+    const elIndex = props.currentPaintingData.elements.find(el => el.name === props.currentElement);
+
+    useEffect(() => {
+        console.log(elIndex);
+    })
+
+    if (!elIndex) return null;
+
+    return (
+                 
+                    <div>
+                        <h3>{elIndex.name}</h3>
+                        <p>{elIndex.steps[0].question}</p>
+                    </div>
+
+        );
+        
 }
 
 export default QuestionModal

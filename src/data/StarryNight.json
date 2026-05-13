@@ -53,7 +53,7 @@
         {
             "name": "Perspective",
             "info": "There is perspective",
-            "clue": true,
+            "clue": false,
             "steps": [
                 {
                     "question": "Is there perspective here?",

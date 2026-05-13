@@ -38,21 +38,21 @@ function CategoryTree() {
     //Painting Data
     const [paintingData, setPaintingData] = useState("");
 
-        //Current Element
-        function useClickTracker() {
-    
-            const [currentElement, setCurrentElement] = useState("");
-    
-            const handleElementClick = (e) => {
-                setCurrentElement(e.target.textContent);
-            }
-    
-            return { currentElement, handleElementClick }
-    
+    //Current Element
+    function useClickTracker() {
+
+        const [currentElement, setCurrentElement] = useState("");
+
+        const handleElementClick = (e) => {
+            setCurrentElement(e.target.textContent);
         }
-    
-        const { currentElement, handleElementClick } = useClickTracker();
-    
+
+        return { currentElement, handleElementClick }
+
+    }
+
+    const { currentElement, handleElementClick } = useClickTracker();
+
 
     return (
         <div id="cat-tree">
