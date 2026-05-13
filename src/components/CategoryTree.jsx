@@ -1,6 +1,6 @@
 //import React stuff
 import React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 //import Data
 import currentPaintingData from "../data/StarryNight.json";
@@ -8,11 +8,14 @@ import paintingDataDefault from "../data/CategoryTree.json"
 
 //import Components
 import QuestionModal from './QuestionModal';
+import DotIndicator from './DotIndicator'
 
 
 //States
 function CategoryTree() {
+    //STATES
 
+    //CategoryTree
     //Add data from current painting into the category tree object
     const updatedCategoryTree = {
         ...paintingDataDefault,
@@ -32,9 +35,10 @@ function CategoryTree() {
 
     const [categoryTreeData, setCategoryTreeData] = useState(updatedCategoryTree);
 
-    //States
+    //Painting Data
     const [paintingData, setPaintingData] = useState("");
 
+    //Current Element
     function useClickTracker() {
 
         const [currentElement, setCurrentElement] = useState("");
@@ -48,6 +52,17 @@ function CategoryTree() {
     }
 
     const { currentElement, handleElementClick } = useClickTracker();
+
+        const [elementRuntime, setElementRuntime] = useState(initialRuntime);
+
+
+    useEffect(() => {
+        console.log(currentElement)
+    }, [currentElement])
+
+    useEffect(() => {
+        console.log(elementRuntime)
+    }, [currentElement])
 
 
     return (
@@ -63,9 +78,15 @@ function CategoryTree() {
                                     element.subcategories.map(subelement => (
                                         <ul>
                                             <li>
+                                                <DotIndicator
+                                                    subelement={subelement}
+                                                    currentElement={currentElement}
+                                                    categoryTreeData={categoryTreeData}
+                                                    currentPaintingData={currentPaintingData}
+                                                />
                                                 <a
                                                     onClick={handleElementClick}
-                                                >{subelement.name}</a></li>
+                                                > {subelement.name}</a></li>
                                         </ul>
                                     ))
                                 }

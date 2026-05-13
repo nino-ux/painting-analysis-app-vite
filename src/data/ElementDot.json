@@ -1,0 +1,30 @@
+[
+    {
+        "name": "regular",
+        "state": [
+            "⚪️",
+            "⚫️"
+        ]
+    },
+    {
+        "name": "dependency",
+        "state": [
+            "❔",
+            "❓"
+        ]
+    },
+    {
+        "name": "clue",
+        "state": [
+            "❕",
+            "❗️"
+        ]
+    },
+    {
+        "name": "solved",
+        "state": [
+            "✅",
+            "✅"
+        ]
+    }   
+]
