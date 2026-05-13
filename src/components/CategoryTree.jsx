@@ -75,7 +75,7 @@ function CategoryTree() {
                                                 />
                                                 <a
                                                     onClick={handleElementClick}
-                                                > {subelement.name}</a></li>
+                                                >{subelement.name}</a></li>
                                         </ul>
                                     ))
                                 }

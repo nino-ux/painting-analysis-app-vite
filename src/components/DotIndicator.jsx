@@ -30,7 +30,7 @@ function DotIndicator(props) {
 
     useEffect(() => {
         console.log(elementRuntime)
-    }, [props.currentElement])
+    }, [elementRuntime])
 
     return (
         <span>{isActive ? elementRuntime.dot[1] : elementRuntime.dot[0]}</span>
