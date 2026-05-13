@@ -5,9 +5,6 @@ import { useState, useEffect } from 'react'
 //import Data
 import currentPaintingData from "../data/StarryNight.json";
 import paintingDataDefault from "../data/CategoryTree.json"
-import ElementDot from '../data/ElementDot.json'
-import DefaultRuntime from '../data/ElementRuntime.json'
-
 
 //import Components
 import QuestionModal from './QuestionModal';
@@ -56,39 +53,16 @@ function CategoryTree() {
 
     const { currentElement, handleElementClick } = useClickTracker();
 
-    // const elIndex = props.currentPaintingData.elements.find(el => el.name === subelement.name);
-
-    // let type;
-    // if (elIndex.clue) {
-    //     type = "clue"
-    // } else { type = "regular" }
-
-    // const elDot = ElementDot.find(dot => dot.name === type);
-
-    const initialRuntime = currentPaintingData.elements.map(el => {
-        let type;
-        if (el.clue) {
-            type = "clue"
-        } else { type = "regular" }
-
-        const elDot = ElementDot.find(dot => dot.name === type);
-
-        return {
-            ...DefaultRuntime,
-            name: el.name,
-            type: type,
-            dot: elDot.state
-        }
-    })
-
-    const [elementRuntime, setElementRuntime] = useState(initialRuntime);
-
+        const [elementRuntime, setElementRuntime] = useState(initialRuntime);
 
 
     useEffect(() => {
-        console.log(initialRuntime)
-    }, [initialRuntime])
+        console.log(currentElement)
+    }, [currentElement])
 
+    useEffect(() => {
+        console.log(elementRuntime)
+    }, [currentElement])
 
 
     return (
@@ -109,9 +83,6 @@ function CategoryTree() {
                                                     currentElement={currentElement}
                                                     categoryTreeData={categoryTreeData}
                                                     currentPaintingData={currentPaintingData}
-                                                    useClickTracker={useClickTracker}
-                                                    elementRuntime={elementRuntime}
-                                                    setElementRuntime={setElementRuntime}
                                                 />
                                                 <a
                                                     onClick={handleElementClick}
