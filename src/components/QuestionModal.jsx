@@ -1,12 +1,8 @@
 import React from "react"
 
-import currentPaintingData from '../data/StarryNight.json'
-
-
-
 function QuestionModal(props) {
     return (
-        currentPaintingData.elements.map((element) => {
+        props.currentPaintingData.elements.map((element) => {
             if (element.name === props.currentElement) {
                 return (
                     <div>
