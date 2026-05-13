@@ -16,7 +16,7 @@
                     "response": "Hey!"
                 },
                                 {
-                    "question": "What type of lines do we have here?",
+                    "question": "What type of lines do we have here? (part 2)",
                     "options": [
                         "Lines",
                         "Curves"
@@ -43,7 +43,7 @@
                     "response": "Da!"
                 },
                                 {
-                    "question": "What type of shapes do we have here?",
+                    "question": "What type of shapes do we have here? (part 2)",
                     "options": [
                         "Organic",
                         "Inorganic"
@@ -71,7 +71,7 @@
                     "conditions": ["Lines", "Shapes"]
                 },
                 {
-                    "question": "What is the focus of the painting?",
+                    "question": "What is the focus of the painting? (part 2)",
                     "options": [
                         "Right Corner",
                         "I don't know"
@@ -94,7 +94,7 @@
                         "Yes",
                         "No"
                     ],
-                    "correctAnswer": "Organic",
+                    "correctAnswer": "Yes",
                     "response": "Yes!"
                 }
             ],

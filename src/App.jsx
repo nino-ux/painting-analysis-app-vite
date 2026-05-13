@@ -6,7 +6,7 @@ import { useState } from "react";
 // import 
 
 //import hooks
-import useGameLogic from "./logic/hooks/useGameLogic";
+// import useGameLogic from "./logic/hooks/useGameLogic";
 import useGameState from "./logic/hooks/useGameState";
 
 //import Components
@@ -19,8 +19,19 @@ import QuestionModal from "./components/QuestionModal";
 function App() {
 
 
-  const { paintingData, setPaintingData, categoryTreeData, setCategoryTreeData, currentElement, setCurrentElement, elementRuntime, setElementRuntime } = useGameState();
-  const { updatedCategoryTree, handleAnswer, handleElementClick } = useGameLogic(currentElement, setCurrentElement);
+  const { 
+    paintingData, 
+    setPaintingData, 
+    categoryTreeData, 
+    setCategoryTreeData, 
+    currentElement, 
+    setCurrentElement, 
+    elementRuntime, 
+    setElementRuntime,
+    updatedCategoryTree, 
+    handleAnswer, 
+    handleElementClick } = useGameState();
+  // const { updatedCategoryTree, handleAnswer, handleElementClick } = useGameLogic(currentElement, setCurrentElement, elementRuntime, setElementRuntime);
 
   return (
     <>
@@ -35,6 +46,7 @@ function App() {
         currentElement={currentElement}
         paintingData={paintingData}
         elementRuntime={elementRuntime}
+        setElementRuntime={setElementRuntime}
         handleAnswer={handleAnswer}
       />
     </>

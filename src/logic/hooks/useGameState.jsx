@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import useGameLogic from './useGameLogic';
+// import useGameLogic from './useGameLogic';
 
 import currentPaintingData from '../../data/StarryNight.json'
 import paintingDataDefault from '../../data/CategoryTree.json'
@@ -14,17 +14,17 @@ function useGameState() {
 
     const initialRuntime = currentPaintingData.elements.map(element => {
         // const elementType = elRuntime.map(element => element.clue ? "clue" : "regular")
-                const elementType = element.clue ? "clue" : "regular"
+        const elementType = element.clue ? "clue" : "regular"
 
         const regularDot = dotInd.find(dt => dt.name === elementType);
-        return   {
-                ...elRuntime,
-                finalStep: element.steps.length,
-                name: element.name,
-                type: elementType,
-                dot: regularDot ? regularDot.state : elRuntime.dot
-            }
-})
+        return {
+            ...elRuntime,
+            finalStep: element.steps.length,
+            name: element.name,
+            type: elementType,
+            dot: regularDot ? regularDot.state : elRuntime.dot
+        }
+    })
 
     const [elementRuntime, setElementRuntime] = useState(initialRuntime);
 
@@ -55,6 +55,31 @@ function useGameState() {
     const [currentElement, setCurrentElement] = useState("");
 
 
+    //**HANDLERS
+    //Handle element click
+    const handleElementClick = (e) => {
+
+        setCurrentElement(e.target.textContent);
+
+
+    }
+
+    useEffect(() => {
+        console.log(currentElement);
+    }, [currentElement])
+
+    //Respond to answer
+    const handleAnswer = (isCorrect, currentElement) => {
+
+        if (!isCorrect) return;
+        setElementRuntime(prev => prev.map(item =>
+            item.name === currentElement
+                ? { ...item, progress: item.progress + 1 }
+                : item
+        ))
+    }
+
+
     return {
         elementRuntime,
         setElementRuntime,
@@ -64,6 +89,8 @@ function useGameState() {
         setCurrentElement,
         categoryTreeData,
         setCategoryTreeData,
+        handleElementClick,
+        handleAnswer
     }
 }
 

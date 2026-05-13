@@ -2,8 +2,8 @@
 import React from 'react'
 // import { useState } from 'react'
 import DotIndicator from './DotIndicator';
-import useGameState from '../logic/hooks/useGameState';
-import useGameLogic from '../logic/hooks/useGameLogic';
+// import useGameState from '../logic/hooks/useGameState';
+// import useGameLogic from '../logic/hooks/useGameLogic';
 
 
 
