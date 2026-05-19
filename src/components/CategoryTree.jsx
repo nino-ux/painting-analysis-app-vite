@@ -1,86 +1,34 @@
-//import React stuff
 import React from 'react'
-import { useState, useEffect } from 'react'
 
-//import Data
-import currentPaintingData from "../data/StarryNight.json";
-import paintingDataDefault from "../data/CategoryTree.json"
-
-//import Components
-import QuestionModal from './QuestionModal';
-import DotIndicator from './DotIndicator'
 import Element from './Element';
 
+function CategoryTree({ categoryTreeData, updateDot }) {
 
-//States
-function CategoryTree() {
-    //STATES
-
-    //CategoryTree
-    //Add data from current painting into the category tree object
-    const updatedCategoryTree = {
-        ...paintingDataDefault,
-        categories: paintingDataDefault.categories.map(cat => ({
-            ...cat,
-            subcategories: cat.subcategories.map(subcat => (
-                {
-                    ...subcat,
-                    info: currentPaintingData.elements.map((info) => {
-                        if (subcat.name === info.name) return info.info
-                    })
-                }
-            ))
-        })
-        )
-    }
-
-    const [categoryTreeData, setCategoryTreeData] = useState(updatedCategoryTree);
-
-    //Painting Data
-    const [paintingData, setPaintingData] = useState("");
-
-    //Current Element
-    function useClickTracker() {
-
-        const [currentElement, setCurrentElement] = useState("");
-
-        const handleElementClick = (e) => {
-            setCurrentElement(e.target.textContent);
-        }
-
-        return { currentElement, handleElementClick }
-
-    }
-
-    const { currentElement, handleElementClick } = useClickTracker();
-
-    const elIndex = currentPaintingData.elements.find(el => el.name === currentElement);
-
-
-    return (
-        <>
-            <div id="cat-tree">
-                <ul>
-                    <h2>{categoryTreeData.name}</h2>
-                    <li>
-                        {categoryTreeData.categories.map((element) => (
-                            <Element
-                                key={element.name}
-                                type="list"
-                                element={element}
-                                currentElement={currentElement}
-                                categoryTreeData={categoryTreeData}
-                                currentPaintingData={currentPaintingData}
-                                handleElementClick={handleElementClick}   // <-- passed correctly
-                            />
-                        ))}
+    const renderCategoryTree = categoryTreeData.categories.map(
+        cat =>
+            <>
+                <ul className='category-tree'>
+                    <li className='category'>
+                        {cat.name}
                     </li>
+                    {cat.subcategories.map((subcat, index) =>
+                    (
+                        <ul className='subcategories'>
+                            <li key={subcat.id} className='subcategory'>
+                                <Element
+                                    index={index}
+                                    updateDot={updateDot}
+                                    name={subcat.name}
+                                />
+                            </li>
+                        </ul>
+                    )
+                    )}
                 </ul>
-            </div>
-        </>
+            </>
     )
 
-
+    return renderCategoryTree;
 }
 
 export default CategoryTree;

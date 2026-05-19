@@ -1,7 +1,3 @@
-import { useEffect, useState } from 'react'
-import ElementDot from '../data/ElementDot.json'
-import DefaultRuntime from '../data/ElementRuntime.json'
-
 
 function DotIndicator(props) {
 
