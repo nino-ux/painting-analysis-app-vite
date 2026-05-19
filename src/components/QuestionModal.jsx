@@ -15,6 +15,12 @@ function QuestionModal(props) {
                     <div>
                         <h3>{elIndex.name}</h3>
                         <p>{elIndex.steps[0].question}</p>
+                        <button 
+                        // onClick={}
+                        >{elIndex.steps[0].options[0]}</button>
+                        <button 
+                        // onClick={}
+                        >{elIndex.steps[0].options[1]}</button>
                     </div>
 
         );

@@ -3,6 +3,7 @@ import { useState } from "react";
 
 //import Components
 import CategoryTree from "./components/CategoryTree";
+// import Element from "./components/Element";
 
 function App() {
 
@@ -10,6 +11,9 @@ function App() {
     <>
       <CategoryTree
       />
+      {/* <Element
+      type="modal"
+      /> */}
     </>
   )
 

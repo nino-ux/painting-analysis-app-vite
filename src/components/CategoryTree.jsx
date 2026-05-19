@@ -9,6 +9,7 @@ import paintingDataDefault from "../data/CategoryTree.json"
 //import Components
 import QuestionModal from './QuestionModal';
 import DotIndicator from './DotIndicator'
+import Element from './Element';
 
 
 //States
@@ -53,43 +54,30 @@ function CategoryTree() {
 
     const { currentElement, handleElementClick } = useClickTracker();
 
+    const elIndex = currentPaintingData.elements.find(el => el.name === currentElement);
+
 
     return (
-        <div id="cat-tree">
-            <ul>
-                <h2>{categoryTreeData.name}</h2>
-                <li>{
-                    categoryTreeData.categories.map(element => (
-                        <li>
-                            <li>{element.name}</li>
-                            <li>
-                                {
-                                    element.subcategories.map(subelement => (
-                                        <ul>
-                                            <li>
-                                                <DotIndicator
-                                                    subelement={subelement}
-                                                    currentElement={currentElement}
-                                                    categoryTreeData={categoryTreeData}
-                                                    currentPaintingData={currentPaintingData}
-                                                />
-                                                <a
-                                                    onClick={handleElementClick}
-                                                >{subelement.name}</a></li>
-                                        </ul>
-                                    ))
-                                }
-                            </li>
-                        </li>
-                    ))
-                }</li>
-            </ul>
-            <QuestionModal
-                currentPaintingData={currentPaintingData}
-                currentElement={currentElement}
-            />
-        </div>
-
+        <>
+            <div id="cat-tree">
+                <ul>
+                    <h2>{categoryTreeData.name}</h2>
+                    <li>
+                        {categoryTreeData.categories.map((element) => (
+                            <Element
+                                key={element.name}
+                                type="list"
+                                element={element}
+                                currentElement={currentElement}
+                                categoryTreeData={categoryTreeData}
+                                currentPaintingData={currentPaintingData}
+                                handleElementClick={handleElementClick}   // <-- passed correctly
+                            />
+                        ))}
+                    </li>
+                </ul>
+            </div>
+        </>
     )
 
 
