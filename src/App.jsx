@@ -73,44 +73,57 @@ function getElementRuntime() {
   return runtime;
 }
 
-function getCurrentElement(currentHistory, index) {
-  const currentElement = currentHistory[index];
-
-  return currentElement;
-}
-
-function getDot(currentHistory, index) {
-  const currentElementDots = getCurrentElement(currentHistory, index).dot;
-
-  return currentElementDots;
-
-}
 
 //view-model
+
 function getGameProps(state, setState) {
-
   const currentHistory = state.history[state.history.length - 1];
+  const currentElement = state.currentElement; // you need to store currentElement in state
+  // const dotStatesArray = getDotStates(currentElement, currentHistory); // modified getDotStates
 
+
+  function getCurrentElement(index) {
+    const currentElement = currentHistory[index];
+
+    return currentElement;
+  }
+
+  function getDot(index) {
+    const currentElementDots = getCurrentElement(index).dot.dots;
+
+    console.log("Hello from getDot: ", currentElementDots)
+
+    return currentElementDots;
+
+  }
+
+  function getDotStates(currentHistory, currentElement) {
+    if (!currentHistory || !currentElement) return [];
+    return currentHistory.map(el => ({
+      id: el.id,
+      name: el.name,
+      dotState: el.name === currentElement.name ? el.dot.dots[1] : el.dot.dots[0],
+    }));
+  }
+
+  // Inside getGameProps
+  const dotStatesArray = getDotStates(currentHistory, currentElement);
 
   function handleElementClick(index) {
-    const currentElement = getCurrentElement(currentHistory, index);
-    const currentElementDots = getDot(currentHistory, index)
-
+    const clickedElement = currentHistory[index];   // object with name, id, etc.
+    setState(prevState => ({
+      ...prevState,
+      currentElement: clickedElement,
+    }));
   }
 
-  function getDotState(currentHistory, currentElement) {
 
-    return elementRuntime.map((el, index) => ({
-      name: el.id,
-      dotState: (el.name === currentElement.name) ? el.dot.dots[1] : el.dot.dots[0]
-    }
-    )
-    )
-
-  }
 
   return {
-    handleElementClick
+    handleElementClick,
+    getCurrentElement,
+    getDot,
+    dotStatesArray
   }
 
 }
@@ -129,13 +142,12 @@ export default function App() {
   const [state, setState] = useState(DEFAULT_STATE);
   const gameProps = getGameProps(state, setState)
 
-  console.log(DEFAULT_STATE);
+  // console.log(DEFAULT_STATE);
 
   return (
     <>
       <Game
         {...gameProps}
-        getDot={getDot}
         categoryTreeData={categoryTreeData} />
     </>
   )

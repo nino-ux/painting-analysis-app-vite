@@ -1,11 +1,14 @@
 import ElementDot from "./ElementDot";
 
-function Element({ subcategory, name, getDot, index }) {
+function Element({ subcategory, name, index, getDot, dotState, getCurrentElement, handleElementClick }) {
   return (
     <>
       <ElementDot
-        getDot={getDot}
         index={index}
+        getDot={getDot}
+        dotSymbol={dotState}
+        getCurrentElement={getCurrentElement}
+        handleElementClick={handleElementClick}
       />
       <a>{name}</a>
     </>

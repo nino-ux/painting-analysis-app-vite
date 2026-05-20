@@ -1,9 +1,9 @@
-function ElementDot({getDot,index}) {
+function ElementDot({index, getDot, dotSymbol, getCurrentElement}) {
 
-    const dot = getDot(index).dots;
+    // const dot = getDot(index).dots;
 
     return (
-    <span>{dot[dotState]}</span>
+    <span>{ dotSymbol }</span>
 )
 }
 

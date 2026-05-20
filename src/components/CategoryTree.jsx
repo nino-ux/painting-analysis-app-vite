@@ -2,7 +2,7 @@ import React from 'react'
 
 import Element from './Element';
 
-function CategoryTree({ categoryTreeData, updateDot }) {
+function CategoryTree({ categoryTreeData, getDot, dotStatesArray, getCurrentElement, handleElementClick }) {
 
     const renderCategoryTree = categoryTreeData.categories.map(
         cat =>
@@ -17,8 +17,11 @@ function CategoryTree({ categoryTreeData, updateDot }) {
                             <li key={subcat.id} className='subcategory'>
                                 <Element
                                     index={index}
-                                    updateDot={updateDot}
                                     name={subcat.name}
+                                    getDot={getDot}
+                                    dotState={dotStatesArray[index]?.dotState}
+                                    getCurrentElement={() => getCurrentElement(index)}
+                                    handleElementClick={handleElementClick}
                                 />
                             </li>
                         </ul>
